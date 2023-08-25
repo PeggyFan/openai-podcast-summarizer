@@ -37,9 +37,8 @@ def main():
             st.image(podcast_info['podcast_details']['episode_image'], caption="Podcast Cover", width=300, use_column_width=True)
 
         st.subheader("Groups that will find this episode highly relevant:")
-        st.subheader('_share it with them_ :blue[cool]`:sunglasses:')
         share_link = 'https://openai-podcast-summarizer.streamlit.app/'
-        st.markdown(f"[Share this link]({share_link})")
+        st.markdown(f"[_share it with them_ :sunglasses:]({share_link})")
         demo = podcast_info['podcast_demographic']
         for group in demo.split('\n'):
             st.markdown(
@@ -75,9 +74,8 @@ def main():
             st.image(podcast_info['podcast_details']['episode_image'], caption="Podcast Cover", width=300, use_column_width=True)
 
         st.subheader("Groups that will find this episode highly relevant:")
-        st.subheader('_share it with them_ :blue[cool]`:sunglasses:')
         share_link = 'https://openai-podcast-summarizer.streamlit.app/'
-        st.markdown(f"[Share this link]({share_link})")
+        st.markdown(f"[_share it with them_ :sunglasses:]({share_link})")
         demo = podcast_info['podcast_demographic']
         for group in demo.split('\n'):
             st.markdown(
