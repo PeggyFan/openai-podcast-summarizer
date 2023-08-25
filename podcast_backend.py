@@ -119,9 +119,10 @@ def get_podcast_highlights(podcast_transcript):
   instructPrompt = """
   You are an experienced economic news reporter. Suggest three news outlets that likely can provide more relevant information after analyzing the content of the podcast:
 
-  - Area 1
-  - Area 2
-  - Area 3
+  - News outlet 1
+  - News outlet 2
+  - News outlet 3
+
 
   Ensure that you only include the areas without additional information or explanations. Let's get started!
   """
