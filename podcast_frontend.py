@@ -38,10 +38,10 @@ def main():
             st.image(podcast_info['podcast_details']['episode_image'], caption="Podcast Cover", width=300, use_column_width=True)
 
         st.subheader("Who would be interested in this podcast?")
-        key_moments = podcast_info['podcast_demographic']
-        for moment in key_moments.split('\n'):
+        key_groups = podcast_info['podcast_demographic']
+        for group in key_groups.split('\n'):
             st.markdown(
-                f"<p style='margin-bottom: 5px;'>{moment}</p>", unsafe_allow_html=True)
+                f"<p style='margin-bottom: 5px;'>{group}</p>", unsafe_allow_html=True)
 
     # User Input box
     st.sidebar.subheader("Add and Process New Podcast Feed")

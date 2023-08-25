@@ -123,18 +123,18 @@ def get_podcast_demographic(podcast_transcript):
                                                         {"role": "user", "content": request}
                                                         ]
                                               )
-  podcastHighlights = chatOutput.choices[0].message.content
-  return podcastHighlights
+  podcastDemographic = chatOutput.choices[0].message.content
+  return podcastDemographic
 
 @stub.function(image=corise_image, secret=modal.Secret.from_name("my-openai-secret"), timeout=1200)
 def process_podcast(url, path):
   output = {}
   podcast_details = get_transcribe_podcast.call(url, path)
   podcast_summary = get_podcast_summary.call(podcast_details['episode_transcript'])
-  podcast_highlights = get_podcast_highlights.call(podcast_details['episode_transcript'])
+  podcast_demographic = get_podcast_demographic.call(podcast_details['episode_transcript'])
   output['podcast_details'] = podcast_details
   output['podcast_summary'] = podcast_summary
-  output['podcast_highlights'] = podcast_highlights
+  output['podcast_demographic'] = podcast_demographic
   return output
 
 @stub.local_entrypoint()
@@ -143,4 +143,4 @@ def test_method(url, path):
   podcast_details = get_transcribe_podcast.call(url, path)
   print ("Podcast Summary: ", get_podcast_summary.call(podcast_details['episode_transcript']))
   # print ("Podcast Guest Information: ", get_podcast_guest.call(podcast_details['episode_transcript']))
-  print ("Podcast Highlights: ", get_podcast_highlights.call(podcast_details['episode_transcript']))
+  print ("Podcast Demographic: ", get_podcast_demographic.call(podcast_details['episode_transcript']))
