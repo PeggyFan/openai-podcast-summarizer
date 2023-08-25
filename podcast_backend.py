@@ -78,11 +78,10 @@ def get_transcribe_podcast(rss_url, local_path):
 @stub.function(image=corise_image, secret=modal.Secret.from_name("my-openai-secret"))
 def get_podcast_summary(podcast_transcript):
   import openai
-  openai.api_key = secret #'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'
   instructPrompt = """
   I want you to step into the role of an experienced copywriter responsible for publishing newsletters to thousands of subscribers. Your task is to summarize a podcast episode in a concise and simple manner, highlighting the important topics discussed. Please follow these guidelines:
 
-  1. Start by providing a brief introduction to the podcast episode, including its title and host.
+  1. Ignore the ads in the beginning of the episode when you summarize. Ads usually include words such as "terms and conditions apply" or a website or URL.
   2. Summarize the main points or key takeaways from the episode, focusing on the most important topics discussed.
   3. Use clear and concise language to ensure your summary is easily understandable by a wide range of readers.
   4. Aim to keep the summary to a specific length limit (e.g., 150-200 words) to make it more reader-friendly and appealing.
@@ -90,6 +89,7 @@ def get_podcast_summary(podcast_transcript):
   6. Proofread your summary before publishing to ensure accuracy and clarity.
   7. Consider formatting options such as bullet points or subheadings to organize your summary effectively.
 
+  Begin your answer with the topics without any introduction.
   Remember, your goal is to engage and inform the subscribers, so make sure your summary is interesting, accurate, and compelling.
   The transcript of the podcast is provided below."
   """
@@ -107,9 +107,8 @@ def get_podcast_summary(podcast_transcript):
 @stub.function(image=corise_image, secret=modal.Secret.from_name("my-openai-secret"))
 def get_podcast_demographic(podcast_transcript):
   import openai
-  openai.api_key = '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'
   instructPrompt = """
-  You are an experienced economic news reporter. Suggest three demographic of readers that will be interested in this episode after analyzing the content of the podcast. 
+  You are an experienced news reporter. Suggest three demographic of readers that will be interested in this episode after analyzing the content of the podcast. 
   Cap the description of the demographic under five words.
 
   - Demographic 1
