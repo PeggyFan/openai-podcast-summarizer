@@ -36,7 +36,7 @@ def main():
         with col2:
             st.image(podcast_info['podcast_details']['episode_image'], caption="Podcast Cover", width=300, use_column_width=True)
 
-        st.subheader("This episode is particularly relevant and interesting for:")
+        st.subheader("Groups that will find this episode highly relevant (share it with them):")
         demo = podcast_info['podcast_demographic']
         for group in demo.split('\n'):
             st.markdown(
@@ -71,7 +71,7 @@ def main():
         with col2:
             st.image(podcast_info['podcast_details']['episode_image'], caption="Podcast Cover", width=300, use_column_width=True)
 
-        st.subheader("This episode is particularly relevant and interesting for:")
+        st.subheader("Groups that will find this episode highly relevant (share it with them):")
         demo = podcast_info['podcast_demographic']
         for group in demo.split('\n'):
             st.markdown(
