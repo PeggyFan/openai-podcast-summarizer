@@ -72,7 +72,7 @@ def main():
         with col2:
             st.image(podcast_info['podcast_details']['episode_image'], caption="Podcast Cover", width=300, use_column_width=True)
 
-        st.subheader("You might be interested in this episode if you identify with these groups")
+        st.subheader("You might be interested in this episode if you identify with these groups:")
         demo = podcast_info['podcast_demographic']
         for group in demo.split('\n'):
             st.markdown(

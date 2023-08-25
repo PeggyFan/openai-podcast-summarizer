@@ -109,7 +109,7 @@ def get_podcast_demographic(podcast_transcript):
   import openai
   instructPrompt = """
   You are an experienced news reporter. Suggest three demographic of readers that will be interested in this episode after analyzing the content of the podcast. 
-  Cap the description of the demographic under five words and list these groups as bullet points.
+  Cap the description of the demographic under five words and list them as bullet points. Do not provide any additional details or explanations.
   """
 
   request = instructPrompt + podcast_transcript
