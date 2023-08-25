@@ -56,7 +56,7 @@ def main():
         podcast_info = process_podcast_info(url)
 
         # Right section - Newsletter content
-        st.header("Newsletter Content")
+        st.header("Marketplace Podcasts - Summarized!")
 
         # Display the podcast title
         st.subheader("Episode Title")
@@ -66,18 +66,17 @@ def main():
         col1, col2 = st.columns([7, 3])
 
         with col1:
-            # Display the podcast episode summary
             st.subheader("Podcast Episode Summary")
             st.write(podcast_info['podcast_summary'])
 
         with col2:
             st.image(podcast_info['podcast_details']['episode_image'], caption="Podcast Cover", width=300, use_column_width=True)
 
-        st.subheader("Who would be interested?")
-        key_moments = podcast_info['podcast_demographic']
-        for moment in key_moments.split('\n'):
+        st.subheader("You might be interested in this episode if you identify with these groups")
+        demo = podcast_info['podcast_demographic']
+        for group in demo.split('\n'):
             st.markdown(
-                f"<p style='margin-bottom: 5px;'>{moment}</p>", unsafe_allow_html=True)
+                f"<p style='margin-bottom: 5px;'>{group}</p>", unsafe_allow_html=True)
 
 def create_dict_from_json_files(folder_path):
     json_files = [f for f in os.listdir(folder_path) if f.endswith('.json')]
