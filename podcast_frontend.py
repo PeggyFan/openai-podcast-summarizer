@@ -37,20 +37,8 @@ def main():
         with col2:
             st.image(podcast_info['podcast_details']['episode_image'], caption="Podcast Cover", width=300, use_column_width=True)
 
-        # Display the podcast guest and their details in a side-by-side layout
-        col3, col4 = st.columns([3, 7])
-
-        # with col3:
-        #     st.subheader("Podcast Guest")
-        #     st.write(podcast_info['podcast_guest']['name'])
-
-        # with col4:
-        #     st.subheader("Podcast Guest Details")
-        #     st.write(podcast_info["podcast_guest"]['summary'])
-
-        # Display the five key moments
-        st.subheader("Key Moments")
-        key_moments = podcast_info['podcast_highlights']
+        st.subheader("Who would be interested in this podcast?")
+        key_moments = podcast_info['podcast_demographic']
         for moment in key_moments.split('\n'):
             st.markdown(
                 f"<p style='margin-bottom: 5px;'>{moment}</p>", unsafe_allow_html=True)
@@ -85,20 +73,8 @@ def main():
         with col2:
             st.image(podcast_info['podcast_details']['episode_image'], caption="Podcast Cover", width=300, use_column_width=True)
 
-        # Display the podcast guest and their details in a side-by-side layout
-        col3, col4 = st.columns([3, 7])
-
-        # with col3:
-        #     st.subheader("Podcast Guest")
-        #     st.write(podcast_info['podcast_guest']['name'])
-
-        # with col4:
-        #     st.subheader("Podcast Guest Details")
-        #     st.write(podcast_info["podcast_guest"]['summary'])
-
-        # Display the five key moments
-        st.subheader("Key Moments")
-        key_moments = podcast_info['podcast_highlights']
+        st.subheader("Who would be interested?")
+        key_moments = podcast_info['podcast_demographic']
         for moment in key_moments.split('\n'):
             st.markdown(
                 f"<p style='margin-bottom: 5px;'>{moment}</p>", unsafe_allow_html=True)

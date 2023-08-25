@@ -78,11 +78,11 @@ def get_transcribe_podcast(rss_url, local_path):
 @stub.function(image=corise_image, secret=modal.Secret.from_name("my-openai-secret"))
 def get_podcast_summary(podcast_transcript):
   import openai
-  openai.api_key = secret
+  openai.api_key = secret #'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'
   instructPrompt = """
   I want you to step into the role of an experienced copywriter responsible for publishing newsletters to thousands of subscribers. Your task is to summarize a podcast episode in a concise and simple manner, highlighting the important topics discussed. Please follow these guidelines:
 
-  1. Do not include the ads that are in the beginning of the episode in the summary. Ads usually involves words like 'terms and conditions apply" or website addresses/URLs.
+  1. Start by providing a brief introduction to the podcast episode, including its title and host.
   2. Summarize the main points or key takeaways from the episode, focusing on the most important topics discussed.
   3. Use clear and concise language to ensure your summary is easily understandable by a wide range of readers.
   4. Aim to keep the summary to a specific length limit (e.g., 150-200 words) to make it more reader-friendly and appealing.
@@ -104,27 +104,17 @@ def get_podcast_summary(podcast_transcript):
 
   return podcastSummary
 
-# @stub.function(image=corise_image, secret=modal.Secret.from_name("my-openai-secret"))
-# def get_podcast_guest(podcast_transcript):
-#   import openai
-#   import wikipedia
-#   import json
-#   ## ADD YOUR LOGIC HERE TO RETURN THE PODCAST GUEST INFORMATION
-#   return podcastGuest
-
 @stub.function(image=corise_image, secret=modal.Secret.from_name("my-openai-secret"))
-def get_podcast_highlights(podcast_transcript):
+def get_podcast_demographic(podcast_transcript):
   import openai
-  openai.api_key = secret
+  openai.api_key = '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'
   instructPrompt = """
-  You are an experienced economic news reporter. Suggest three news outlets that likely can provide more relevant information after analyzing the content of the podcast:
+  You are an experienced economic news reporter. Suggest three demographic of readers that will be interested in this episode after analyzing the content of the podcast. 
+  Cap the description of the demographic under five words.
 
-  - News outlet 1
-  - News outlet 2
-  - News outlet 3
-
-
-  Ensure that you only include the areas without additional information or explanations. Let's get started!
+  - Demographic 1
+  - Demographic 2
+  - Demographic 3
   """
 
   request = instructPrompt + podcast_transcript
@@ -141,11 +131,9 @@ def process_podcast(url, path):
   output = {}
   podcast_details = get_transcribe_podcast.call(url, path)
   podcast_summary = get_podcast_summary.call(podcast_details['episode_transcript'])
-  # podcast_guest = get_podcast_guest.call(podcast_details['episode_transcript'])
   podcast_highlights = get_podcast_highlights.call(podcast_details['episode_transcript'])
   output['podcast_details'] = podcast_details
   output['podcast_summary'] = podcast_summary
-  # output['podcast_guest'] = podcast_guest
   output['podcast_highlights'] = podcast_highlights
   return output
 
