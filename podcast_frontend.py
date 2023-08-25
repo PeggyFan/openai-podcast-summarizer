@@ -4,8 +4,7 @@ import json
 import os
 
 def main():
-    st.title("Marketplace Podcasts Summarized 🎙️")
-
+    st.title("Marketplace 🎙️ Summarized!")
     available_podcast_info = create_dict_from_json_files('.')
 
     # Left section - Input fields
@@ -37,9 +36,9 @@ def main():
         with col2:
             st.image(podcast_info['podcast_details']['episode_image'], caption="Podcast Cover", width=300, use_column_width=True)
 
-        st.subheader("Who would be interested in this podcast?")
-        key_groups = podcast_info['podcast_demographic']
-        for group in key_groups.split('\n'):
+        st.subheader("This episode is particularly relevant and interesting for:")
+        demo = podcast_info['podcast_demographic']
+        for group in demo.split('\n'):
             st.markdown(
                 f"<p style='margin-bottom: 5px;'>{group}</p>", unsafe_allow_html=True)
 
@@ -72,7 +71,7 @@ def main():
         with col2:
             st.image(podcast_info['podcast_details']['episode_image'], caption="Podcast Cover", width=300, use_column_width=True)
 
-        st.subheader("You might be interested in this episode if you identify with these groups:")
+        st.subheader("This episode is particularly relevant and interesting for:")
         demo = podcast_info['podcast_demographic']
         for group in demo.split('\n'):
             st.markdown(
