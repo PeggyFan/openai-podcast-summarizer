@@ -25,7 +25,7 @@ def main():
         st.subheader("Episode Title")
         st.write(podcast_info['podcast_details']['episode_title'])
         st.subheader("Date")
-        st.write(podcast_info['podcast_date']['episode_pubDate'])
+        st.write(podcast_info['podcast_details']['episode_pubDate'])
 
         # Display the podcast summary and the cover image in a side-by-side layout
         col1, col2 = st.columns([7, 3])
@@ -65,7 +65,7 @@ def main():
         st.subheader("Episode Title")
         st.write(podcast_info['podcast_details']['episode_title'])
         st.subheader("Date")
-        st.write(podcast_info['podcast_date']['episode_pubDate'])
+        st.write(podcast_info['podcast_details']['episode_pubDate'])
 
         # Display the podcast summary and the cover image in a side-by-side layout
         col1, col2 = st.columns([7, 3])

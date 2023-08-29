@@ -129,6 +129,7 @@ def process_podcast(url, path):
   podcast_details = get_transcribe_podcast.call(url, path)
   podcast_summary = get_podcast_summary.call(podcast_details['episode_transcript'])
   podcast_demographic = get_podcast_demographic.call(podcast_details['episode_transcript'])
+  
   output['podcast_details'] = podcast_details
   output['podcast_summary'] = podcast_summary
   output['podcast_demographic'] = podcast_demographic
