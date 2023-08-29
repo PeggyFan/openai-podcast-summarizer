@@ -89,7 +89,7 @@ def get_podcast_summary(podcast_transcript):
   6. Proofread your summary before publishing to ensure accuracy and clarity.
   7. Consider formatting options such as bullet points or subheadings to organize your summary effectively.
 
-  Begin your answer with the topics without any introduction.
+  Begin your answer with the topics without any introduction. Do not include any details about the summary itself, such as text length.
   Remember, your goal is to engage and inform the subscribers, so make sure your summary is interesting, accurate, and compelling.
   The transcript of the podcast is provided below."
   """
@@ -110,7 +110,7 @@ def get_podcast_demographic(podcast_transcript):
   instructPrompt = """
   You are an experienced news reporter. Suggest three demographic of readers that will be interested in this episode after analyzing the content of the podcast. 
   Cap the description of the demographic under five words and list them as bullet points. Do not provide any additional details or explanations.
-  """
+"""
 
   request = instructPrompt + podcast_transcript
   chatOutput = openai.ChatCompletion.create(model="gpt-3.5-turbo-16k",
@@ -137,4 +137,4 @@ def test_method(url, path):
   output = {}
   podcast_details = get_transcribe_podcast.call(url, path)
   print ("Podcast Summary: ", get_podcast_summary.call(podcast_details['episode_transcript']))
-  print ("Podcast Demographic: ", get_podcast_demographic.call(podcast_details['episode_transcript']))
+  print ("Podcast demographic: ", get_podcast_demographic.call(podcast_details['episode_transcript']))
