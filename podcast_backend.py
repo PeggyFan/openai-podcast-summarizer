@@ -31,6 +31,7 @@ def get_transcribe_podcast(rss_url, local_path):
   intelligence_feed = feedparser.parse(rss_url)
   podcast_title = intelligence_feed['feed']['title']
   episode_title = intelligence_feed.entries[0]['title']
+  episode_pubDate = intelligence_feed.entries[0]['published']
   episode_image = intelligence_feed['feed']['image'].href
   for item in intelligence_feed.entries[0].links:
     if (item['type'] == 'audio/mpeg'):
@@ -72,6 +73,7 @@ def get_transcribe_podcast(rss_url, local_path):
   output['podcast_title'] = podcast_title
   output['episode_title'] = episode_title
   output['episode_image'] = episode_image
+  output['episode_pubDate'] =  episode_pubDate
   output['episode_transcript'] = result['text']
   return output
 
