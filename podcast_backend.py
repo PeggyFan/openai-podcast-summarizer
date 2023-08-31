@@ -84,7 +84,7 @@ def get_podcast_summary(podcast_transcript):
   I want you to step into the role of an experienced copywriter responsible for publishing newsletters to thousands of subscribers. Your task is to summarize a podcast episode in a concise and simple manner, highlighting the important topics discussed. Please follow these guidelines:
 
   1. Ignore the ads in the beginning of the episode when you summarize. Ads usually include words such as "terms and conditions apply" or a website or URL.
-  2. Summarize the main points or key takeaways from the episode, focusing on the most important topics discussed.
+  2. Summarize the main points or key takeaways from the episode with at most 5 bullet points, focusing on the most important topics discussed.
   3. Use clear and concise language to ensure your summary is easily understandable by a wide range of readers.
   4. Aim to keep the summary to a specific length limit (e.g., 150-200 words) to make it more reader-friendly and appealing.
   5. Avoid adding any personal opinions or additional information beyond what was discussed in the podcast episode.
