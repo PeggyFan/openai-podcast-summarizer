@@ -12,7 +12,7 @@ def main():
 
     # Dropdown box
     st.sidebar.subheader("Available Podcasts Feeds")
-    selected_podcast = st.sidebar.selectbox("Select Podcast", options=available_podcast_info.keys())
+    selected_podcast = st.sidebar.selectbox("Select Episode", options=available_podcast_info.keys())
 
     if selected_podcast:
 
@@ -93,9 +93,9 @@ def create_dict_from_json_files(folder_path):
         file_path = os.path.join(folder_path, file_name)
         with open(file_path, 'r') as file:
             podcast_info = json.load(file)
-            podcast_name = podcast_info['podcast_details']['podcast_title']
+            episode_name = podcast_info['podcast_details']['episode_title']
             # Process the file data as needed
-            data_dict[podcast_name] = podcast_info
+            data_dict[episode_name] = podcast_info
 
     return data_dict
 
